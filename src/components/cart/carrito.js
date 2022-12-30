@@ -36,12 +36,16 @@ let articuloCarrito = []
 cargarEventListeners()
 function cargarEventListeners(){
     listaProductos.addEventListener('click', agregarProducto);
-   // carrito.addEventListener('click', deleteProducto);
+    carrito.addEventListener('click', deleteProducto);
+
+   //Muestra los productos de Local Storage
+
+     articuloCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      // return carritoStorage;
+      carritoHTML();
 
 }
-// const cargarEventListeners = () => {
-//     listaProductos.addEventListener('click', agregarProducto);
-// }
+
 
 //FUNCIONES
 //Agrega producto al carrito
@@ -112,7 +116,9 @@ const actualizarTotalesCarrito = (articuloCarrito) => {
     const totalCompra = articuloCarrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
 
     pintarTotalesCarrito(totalCantidad, totalCompra);
-    guardarCarritoStorage(carrito);
+    
+  // guardarCarritoStorage(articuloCarrito);
+ 
 };
 
 const pintarTotalesCarrito = (totalCantidad, totalCompra) => {
@@ -121,6 +127,7 @@ const pintarTotalesCarrito = (totalCantidad, totalCompra) => {
 
     contadorCarrito.innerText = totalCantidad;
     precioTotal.innerText = totalCompra;
+    
 };
 
 
@@ -154,11 +161,17 @@ function carritoHTML(){
 
        
         `;
-        console.log(producto)
         //Agrega el HTML del carrito en el tbody
         contenedorCarrito.appendChild(row);
-       
+
+        //Agrega carrito al storage
+       sincronizaStorage();
+       // guardarCarritoStorage(carrito);
     });
+
+    function sincronizaStorage(){
+        localStorage.setItem('carrito', JSON.stringify(articuloCarrito));
+    }
 
     //Elimina los productos del tbody
     function limpiaHTML(){
@@ -170,11 +183,11 @@ function carritoHTML(){
     }
 }
 
-const guardarCarritoStorage = (articuloCarrito) => {
-    localStorage.setItem('articuloCarrito', JSON.stringify(articuloCarrito));
-};
+// const guardarCarritoStorage = (articuloCarrito) => {
+//     localStorage.setItem('carrito', JSON.stringify(articuloCarrito));
+// };
 
-const obtenerCarritoStorage = () => {
-    const carritoStorage = JSON.parse(localStorage.getItem('articuloCarrito'));
-    return carritoStorage;
-};
+// const obtenerCarritoStorage = () => {
+//     const carritoStorage = JSON.parse(localStorage.getItem('articuloCarrito'));
+//     return carritoStorage;
+// };

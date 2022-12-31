@@ -72,6 +72,7 @@ function deleteProducto(e){
         articuloCarrito = articuloCarrito.filter(producto => producto.id !== productoID);
        // console.log(articuloCarrito);
        carritoHTML();//itera sobre el carrito y muestra su HTML
+       actualizarTotalesCarrito(articuloCarrito);
      }
 
 }
@@ -180,11 +181,10 @@ function carritoHTML(){
 
     //Elimina los productos del tbody
     function limpiaHTML(){
-        //contenedorCarrito.innerHTML = '';
-
-        while(contenedorCarrito.firstChild){
-            contenedorCarrito.removeChild(contenedorCarrito.firstChild)
-        }
+        contenedorCarrito.innerHTML = '';
+        // while(contenedorCarrito.firstChild){
+        //     contenedorCarrito.removeChild(contenedorCarrito.firstChild)
+        // }
     }
 }
 

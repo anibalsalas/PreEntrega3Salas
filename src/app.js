@@ -1,4 +1,5 @@
 const pintarProductos = () => {
+   // console.log(productos)
     const contenedor = document.getElementById('lista-productos');
     productos.forEach( producto => {
         const div = document.createElement('div');
@@ -11,8 +12,8 @@ const pintarProductos = () => {
                   <h4 class="fw-bold precio_final">${producto.precio}</h4>
              </div>
              <div class="card text-center flex" >
+             <a href="#" class="add__producto" id="${producto.id}"><img src="public/img/car.png" alt=""> Agregar</a>
               <a href="pages/producto.html" class="ver__producto">Ver Producto</a>
-              <a href="#" class="add__producto" id="${producto.id}"><img src="public/img/car.png" alt=""> Agregar</a>
              </div>
         `
         contenedor.appendChild(div)

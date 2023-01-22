@@ -13,98 +13,118 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <link  href="https://www.unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/estilos.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <!-- CDN toastify -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 <body>
-    <header class="container-fluid bg-dark">
-        <div class="container  bg-dark">
-            <div class="row">
-                  <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+ 
+
+    <header class="colorHeader">
+          <nav class="container-fluid navbarDelivery">
+                      
+            <div class='textoDelivery'>
+              <img src="public/img/delivery.png" alt="">
+              <p>Delivery Gratis</p>
+              <p>Por compras desde S/.199</p>
+            </div>
+        
+            <div class="contactenos">
+              <p>
+                Contactanos al Celular: +51 935803086
+              </p>
+            </div>
+          </nav>
+        <div class="container ">
+                  <nav class="row navbar navbar-expand-lg  navbar-dark ">
                     <div class="container-fluid ">
                          
                                 <a class="navbar-brand logolino" href="#">
                                 <svg width="91" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="M0 0h5.436v5.606H0z"/><path id="c" d="M0 0h5.436v5.606H0z"/><path id="e" d="M0 0h5.436v5.606H0z"/><path id="g" d="M0 38.108h90V0H0z"/><path d="M8.018 2.918L.19 19.667a2.023 2.023 0 00-.191.822v.078c.014.76.453 1.486 1.187 1.827l7.445 3.464V7.41L16.059 0 8.018 2.918z" id="i"/><path d="M10.157 0a2.032 2.032 0 00-1.413.594L0 9.361v18.374a2.044 2.044 0 002.037 2.042l16.294-.001a2.043 2.043 0 002.036-2.04V9.36L11.625.594A2.038 2.038 0 0010.21 0h-.053zM8.911 3.235a1.273 1.273 0 112.546 0 1.274 1.274 0 11-2.546 0z" id="l"/><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="j"><stop stop-color="#FF6503" offset="0%"/><stop stop-color="#C8009F" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="m"><stop stop-color="#FF6503" offset="0%"/><stop stop-color="#C8009F" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><g transform="translate(0 1)"><path d="M11.383 37.172h1.098c.658 0 .957-.274.957-.783 0-.452-.293-.74-.964-.74h-1.091v1.523zm1.125-2.459c.579 0 .818-.257.818-.652 0-.41-.313-.623-.782-.623h-1.161v1.275h1.125zm-2.32-2.21h2.46c1.36 0 1.877.704 1.877 1.433 0 .633-.337 1.042-.718 1.216.38.142.878.54.878 1.278 0 .958-.756 1.677-1.953 1.677h-2.543v-5.604zm8.649 5.604v-1.98a.31.31 0 00-.047-.18l-1.942-3.444h1.377c.435.845 1 1.97 1.281 2.579.245-.588.862-1.768 1.287-2.58h1.273l-1.965 3.427c-.023.04-.047.065-.047.179v2h-1.217zm9.708-5.605h3.928v.994h-2.74v1.373h2.568v.994h-2.568v2.244h-1.188z" fill="#FFF"/><g transform="translate(34.388 32.502)"><mask id="b" fill="#fff"><use xlink:href="#a"/></mask><path d="M3.43 3.317c-.398-1.181-.653-1.939-.79-2.442h-.008c-.14.553-.42 1.432-.741 2.442h1.54zm-1.795.994l-.44 1.295H0L1.91 0h1.53l1.996 5.606h-1.28L3.691 4.31H1.635z" fill="#FFF" mask="url(#b)"/></g><path fill="#FFF" d="M42.502 32.502h1.217v4.613h2.805l-.14.992h-3.882z"/><g transform="translate(48.94 32.502)"><mask id="d" fill="#fff"><use xlink:href="#c"/></mask><path d="M3.43 3.317c-.398-1.181-.653-1.939-.79-2.442h-.008c-.14.553-.42 1.432-.741 2.442h1.54zm-1.795.994l-.44 1.295H0L1.91 0h1.53l1.996 5.606h-1.28L3.691 4.31H1.635z" fill="#FFF" mask="url(#d)"/></g><path d="M58.249 37.172h1.098c.658 0 .957-.274.957-.783 0-.452-.293-.74-.964-.74h-1.091v1.523zm1.125-2.459c.579 0 .818-.257.818-.652 0-.41-.313-.623-.783-.623h-1.16v1.275h1.125zm-2.32-2.21h2.46c1.36 0 1.877.704 1.877 1.433 0 .633-.337 1.042-.718 1.216.38.142.88.54.88 1.278 0 .958-.758 1.677-1.955 1.677h-2.544v-5.604zm11.277 3.187H65.64v1.424h2.97l-.145.993h-4.006v-5.604h3.99v.993H65.64v1.2h2.692zm3.105-3.188h1.217v4.613h2.805l-.138.992h-3.884zm6.701 0h1.217v4.613h2.805l-.14.992h-3.882z" fill="#FFF"/><g transform="translate(84.576 32.502)"><mask id="f" fill="#fff"><use xlink:href="#e"/></mask><path d="M3.43 3.317c-.398-1.181-.653-1.939-.79-2.442h-.008c-.14.553-.42 1.432-.74 2.442h1.539zm-1.794.994l-.44 1.295H0L1.912 0h1.529l1.995 5.606h-1.28L3.691 4.31H1.636z" fill="#FFF" mask="url(#f)"/></g><path d="M76.956 12.446a5.573 5.573 0 110 11.147 5.573 5.573 0 010-11.147m0 14.864a9.29 9.29 0 100-18.58 9.29 9.29 0 000 18.58" fill="#FFF"/><mask id="h" fill="#fff"><use xlink:href="#g"/></mask><path fill="#FFF" mask="url(#h)" d="M33.243 26.848h3.912V9.246h-3.912zm28.263-.003h3.912V9.243h-3.912zm-6.643-7.142L39.898 8.798v18.049h3.91V16.473l14.964 10.905V9.239h-3.909z"/></g><g transform="translate(0 2.136)"><mask id="k" fill="#fff"><use xlink:href="#i"/></mask><path d="M8.018 2.918L.19 19.667a2.023 2.023 0 00-.191.822v.078c.014.76.453 1.486 1.187 1.827l7.445 3.464V7.41L16.059 0 8.018 2.918z" fill="url(#j)" mask="url(#k)"/></g><g transform="translate(10.262 1)"><mask id="n" fill="#fff"><use xlink:href="#l"/></mask><path d="M10.157 0a2.032 2.032 0 00-1.413.594L0 9.361v18.374a2.044 2.044 0 002.037 2.042l16.294-.001a2.043 2.043 0 002.036-2.04V9.36L11.625.594A2.038 2.038 0 0010.21 0h-.053zM8.911 3.235a1.273 1.273 0 112.546 0 1.274 1.274 0 11-2.546 0z" fill="url(#m)" mask="url(#n)"/></g><path d="M18.521 23.912V10.199h-3.918v17.632h11.752v-3.92z" fill="#FFF"/></g></svg>
                                 </a>
-                            
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                  <span class="navbar-toggler-icon"></span>
-                                </button>
-                               
-                              <div class="container collapse navbar-collapse mt-3" id="navbarSupportedContent">     
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                  <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                      Categorias
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-dark ">
-                                      <li><a class="dropdown-item text-white" href="#">Equipos Tecnológicos</a></li>
-                                      <li><a class="dropdown-item text-white" href="#">Moda Hombre</a></li>
-                                      <li><a class="dropdown-item text-white" href="#">Moda Mujer</a></li>
-                                    <li><a class="dropdown-item text-white" href="#">Juguetes para niños y bebes</a></li>
-                                    <li><a class="dropdown-item text-white" href="#">Hogar</a></li>
-                                    </ul>
-                                  </li>
-                                </ul>
-                            <form class="container-fluid d-flex justify-content-center">
-                                <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Buscar Producto" aria-label="Username" aria-describedby="basic-addon1">
-                                <a href="#" class="input-group-text" id="basic-addon1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                    </svg>
-                                    </a>
-                                </div>
-                            </form>        
-                                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll justify-content-center " style="--bs-scroll-height: 100px;">
-                                        <li class="nav-item  d-flex justify-content-center">
-                                        <a class="nav-link active text-white" aria-current="page" href="pages/login.html">Acceder / Resgistrarse</a>
-                                        </li>
-                                        
-                                        <li id="cesta" class="nav-item d-flex justify-content-center header__cart">
-                                          <!-- <div class="header__cart--noti">3</div> -->
-                                          <button id="cesta-carrito"><span id="contador-carrito">0</span></button>
-                                            <img    class="carrito " onclick="opencarrito('carrito')" src="public/img/carrito.png" alt="carrito">
-                                         
-                                                <div id="carrito" class="car ">
-                                                          <button  id="btn-cerrar-carrito" onclick="cerrarcarrito('carrito')">x</button>
-                                                          <!-- <span class="boton" onclick="cerraranuncio('primeranuncio')">x</span> -->
-                                                          
-                                                          <p class="car-modal">Mi Carrito</p>
 
-                                                          <table id="lista-carrito" class="u-full-width">
-                                                              <thead>
-                                                                  <tr>
-                                                                
-                                                                  </tr>
-                                                              </thead>
-                                                              <tbody></tbody>
-                                                          </table>
-                                                          <!-- <p class="precioProducto">Precio total: $<span id="precioTotal"></span></p> -->
-                                                          <div class="total">
-                                                           
-                                                            <p class="precioProducto">SubTotal: $<span id="precioTotal"></span></p>
-                                                          </div>
-                                                          <!-- <i class="bx bx-x" id="close-cart"></i> -->
-                                                          <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
-                                                        <button class="car-vercarrito">Ver todo el carrito</button>
-                                                </div>
-                                        </li>
-                                </ul>
-                               
-                      </div>
+                                <div class="dropdown">
+                                  <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="pull-right">
+                                      <img src="public/img/icons8-menú-24.png" alt="">
+                                     </span>
+                                  </button>
+                                  <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item " href="#"><img src="public/img/escolar.png" alt=""> UTILES ESCOLARES</a></li>
+                                    <li><a class="dropdown-item" href="#"><img src="public/img/pc.png" alt=""> TECNOLOGIA</a></li>
+                                    <li><a class="dropdown-item" href="#"><img src="public/img/modahombre.png" alt=""> MODA HOMBRE</a></li>
+                                    <li><a class="dropdown-item" href="#"><img src="public/img/modamujer.png" alt=""> MODA MUJER</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item category" href="#">TODAS LAS CATEGORIAS</a></li>
+                                  </ul>
+                                </div>
+                              
+                                <div class="input-group container-fluid d-flex justify-content-flex-start " id="buscador">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Buscar Producto" aria-label="Username" aria-describedby="basic-addon1">
+                                    <a href="#" class="input-group-text" id="basic-addon1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                        </svg>
+                                        </a>
+                                    </div>
+                                </div>
+       
+
+                                <div class="nav-item  d-flex justify-content-center espacioUser">
+                                  <a class="sesionColor" aria-current="page" href="pages/login.html"><img src="public/img/user.png" alt="">   Iniciar Sesión</a>
+
+                                    <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll justify-content-center" style="--bs-scroll-height: 100px;">
+
+                                      <li id="cesta" class="nav-item d-flex justify-content-center header__cart">
+                                        <!-- <div class="header__cart--noti">3</div> -->
+                                        <a id="cesta-carrito"><span id="contador-carrito">0</span></a>
+                                          <img    class="carrito " onclick="opencarrito('carrito')" src="public/img/carrito.png" alt="carrito">
+                                      
+                                              <div id="carrito" class="car ">
+                                                
+
+                                                        <button  id="btn-cerrar-carrito" onclick="cerrarcarrito('carrito')">x</button>
+                                                        <!-- <span class="boton" onclick="cerraranuncio('primeranuncio')">x</span> -->
+                                                        
+                                                        <p class="car-modal">Mi Carrito</p>
+
+                                                        <table id="lista-carrito" class="u-full-width">
+                                                            <thead>
+                                                                <tr>
+                                                              
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody></tbody>
+                                                        </table>
+                                                        <p class="precioProducto">SubTotal: S/<span id="precioTotal">0.00</span></p>
+                                                        <!-- <p class="precioProducto">Precio total: $<span id="precioTotal"></span></p> -->
+                                                        <!-- <i class="bx bx-x" id="close-cart"></i> -->
+                                                      <button id="enviar-carrito" class="car-vercarrito">Enviar Pedido</button>
+                                                      <button id="vaciar-carrito" class="car-vercarrito"   >Vaciar Carrito</button>
+
+                                                    </div>
+                                      </li>
+                              </ul>
+                            </div>
+    
+                             
 
                     </div>
                   </nav>
 
 
-            </div>
         </div>
-        
+      
    </header>
 
         <main>
-            <div class="container ">
+            <div class="container-fluid promocionesHeader">
                 <div class="row">
                     <div class="col">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -133,6 +153,7 @@
              </div>
 
              <div class="container mt-2 ">
+              
                 <div class="row " >
                         <div class="col d-flex justify-content-center flex-wrap cajas1">
                             <div class="p-3 flex-fill border border-secondary text-center cards1">
@@ -203,69 +224,10 @@
              </div>
 
                   <div id= "lista-productos" >
-                    <!-- <h1 id="encabezado" class="encabezado">Utiles escolares</h1> -->
-
-                            <!-- <div class="cardp">
-                                <img src="public/img/tempera.jpg" class="card-img-top ofertas position-relative top-0 start-50 translate-middle-x" alt="compras">
-                                <h6 class="text-center">FABER CASTELL</h6>
-                                <h5 class="card-title text-center card-botom">Témpera X 7 Faber Castell </h5>
-                                <div class="flex__precio">
-                                    <h4 class="fw-bold precio_final">S/ 20.80</h4>
-                                </div>
-                             
-                                <div class="card text-center flex" >
-                                    <a href="pages/producto.html" class="ver__producto">Ver Producto</a>
-                                    <a href="#" class="add__producto" data-id="1"><img src="public/img/car.png" alt=""> Agregar</a>
-                                </div>
-                            </div>
-
-                                      
-                            <div class="cardp ">
-                                <img src="public/img/perforador.jpg" class="card-img-top ofertas position-relative top-0 start-50 translate-middle-x" alt="compras">
-                                <h6 class="text-center">  ARTESCO </h6>
-                                <h5 class="card-title text-center card-botom">Perforador 60 Hojas M-93 Artesco</h5>
-                                <div class="flex__precio">
-                                    <h4 class="fw-bold precio_final"> S/95.40 </h4>
-                                </div>
-                           
-                                <div class="card text-center flex" >
-                                  <a href="pages/producto.html" class="ver__producto">Ver Producto</a>
-                                  <a href="#" class="add__producto" data-id="1"><img src="public/img/car.png" alt=""> Agregar</a>
-                                </div>
-                            </div>
-                       
-
-                            <div class="cardp ">
-                                <img src="public/img/plastilina.jpg" class="card-img-top ofertas position-relative top-0 start-50 translate-middle-x" alt="compras">
-                                <h6 class="text-center"> LAYCONSA</h6>
-                                <h5 class="card-title text-center card-botom">Plastilina X 10 Puppy Layconsa</h5>
-                                <div class="flex__precio">
-                                    <h4 class="fw-bold precio_final">S/ 3.50</h4>
-                                </div>
-                           
-                                <div class="card text-center flex" >
-                                  <a href="pages/producto.html" class="ver__producto">Ver Producto</a>
-                                  <a href="#" class="add__producto" data-id="1"><img src="public/img/car.png" alt=""> Agregar</a>
-                              </div>
-                            </div>
-                       
-                                      
-                            <div class="cardp">
-                                <img src="public/img/boligrafo.jpg" class="card-img-top ofertas position-relative top-0 start-50 translate-middle-x" alt="compras">
-                                <h6 class="text-center">PILOT</h6>
-                                <h5 class="card-title text-center ">Bolígrafo Pilot Bl-G1-7 Plata </h5>
-                                <div class="flex__precio">
-                                    <h4 class="fw-bold precio_final">S/4.70</h4>
-                                </div>
-                           
-                                  <div class="card text-center flex" >
-                                    <a href="pages/producto.html" class="ver__producto">Ver Producto</a>
-                                    <a href="#" class="add__producto" data-id="1"><img src="public/img/car.png" alt=""> Agregar</a>
-                                 </div>
-                            </div> -->
+                  
                        
                   
-            </div>
+                 </div>
 
              <div class="container mt-5 ">
                   <div class="row">
@@ -392,9 +354,11 @@
             </div>
         </div>
     </footer>
-    <script src="src/components/data/stock.js"></script>
+    <!-- <script src="src/components/data/stock.js"></script> -->
     <script src="src/components/cart/open.js "></script>
     <script src="src/components/cart/carrito.js "></script>
+    <script src="src/controllers/productControllers.js "></script>
+
     <script src="src/app.js"></script>
     
  

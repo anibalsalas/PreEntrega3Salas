@@ -1,50 +1,37 @@
-// let minusBtn = document.querySelector('.input__minus');
-// let plusBtn = document.querySelector('.input__plus');
-// let userInput = document.querySelector('.input__number');
-
-// let userInputNumber = 0;
-
-// plusBtn.addEventListener('click', (e) =>{
-//     if(e.target.classList.contains('input__plus')){
-//         userInputNumber++;
-//         userInput.value = userInputNumber;
-//         console.log(userInputNumber);
-//     }
-    
-// });
-
-
-// minusBtn.addEventListener('click', () =>{
-//     userInputNumber--;
-//     if(userInputNumber <= 0){
-//         userInputNumber = 0;
-//     }
-//    userInput.value = userInputNumber;
-//     console.log(userInputNumber);
-// })
-
-
 
 const carrito = document.querySelector('#carrito');
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
+const enviarCarritoBtn = document.querySelector('#enviar-carrito')
 const listaProductos = document.querySelector('#lista-productos');
+const btnalert = document.querySelector('.add__producto')
+
 let articuloCarrito = []
 
 
 
 cargarEventListeners()
 function cargarEventListeners(){
-
+    //Al presionar "Agregar al carrito"
     listaProductos.addEventListener('click', agregarProducto);
-
+    //Elimina del carrito
     carrito.addEventListener('click', deleteProducto);
+    //Vaciar carrito
+    vaciarCarritoBtn.addEventListener('click', () => {
+        articuloCarrito = [] //reseteo el carrito
+        vaciarHTML();//ELiminamos todo del HTML DOM
+        actualizarTotalesCarrito(articuloCarrito);
+        
 
+    })
    //Muestra los productos de Local Storage
-     articuloCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
-     console.log(articuloCarrito)
-      // return carritoStorage;
-      carritoHTML();
+   document.addEventListener('DOMContentLoaded', () =>{
+        articuloCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        
+        // return carritoStorage;
+        carritoHTML();
+   })
+     
 
 }
 
@@ -57,7 +44,7 @@ function agregarProducto(e){
     if(e.target.classList.contains('add__producto')){
         const productoSeleccionado = e.target.parentElement.parentElement;
         leerDatosProducto(productoSeleccionado);
-
+        alertAdd();
     }
 
 }
@@ -70,19 +57,39 @@ function deleteProducto(e){
         const productoID = e.target.getAttribute('id');
         //Elimino del array de articuloCarrito por el id
         articuloCarrito = articuloCarrito.filter(producto => producto.id !== productoID);
-       // console.log(articuloCarrito);
+        localStorage.removeItem(articuloCarrito);
+      //  console.log(articuloCarrito);
+   
        carritoHTML();//itera sobre el carrito y muestra su HTML
        actualizarTotalesCarrito(articuloCarrito);
+       //carritoHTML();
+    //   sincronizaStorage();
+
+
      }
 
 }
 
+//Alerta confirmación 
+function alertAdd(){
+            Toastify({
+            text: 'El producto se agrego al carrito',
+            duration: 2000,
+            gravity: 'bottom',
+            position: 'right',
+            style: {
+                background: 'linear-gradient(to right, #00b09b, #96c92d)'
+            }
+        }).showToast()
+    
+    
+}
 
 
 //Lee 
 function leerDatosProducto(producto){
   
-   // console.log(producto)
+    //console.log(producto)
     //crea un objeto con el contenido actual
     const infoProducto = {
         imagen: producto.querySelector('img').src,
@@ -104,29 +111,54 @@ function leerDatosProducto(producto){
                 return producto;//retorna los objetos que no son los duplicados
                 
             }
+    
         });
         articuloCarrito = [...productos];
+   
         
     }else {
         articuloCarrito = [...articuloCarrito, infoProducto];
         actualizarTotalesCarrito(articuloCarrito);
 
     }
-    //agrega elementos al arreglo del carrito
-    //console.log(articuloCarrito);
-    carritoHTML();
+
 }
+
+
+//////////////////////////////////////////////////////////////
+
+
 //TOTAL CARRITO
 
 const actualizarTotalesCarrito = (articuloCarrito) => {
     const totalCantidad = articuloCarrito.reduce((acc, item) => acc + item.cantidad, 0);
-    const totalCompra = articuloCarrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+    const totalCompra = articuloCarrito.reduce((acc, item) => acc + (parseFloat(item.precio) * parseFloat(item.cantidad)), 0);
 
     pintarTotalesCarrito(totalCantidad, totalCompra);
-    
-  // guardarCarritoStorage(articuloCarrito);
- 
+    carritoHTML();
+   // sincronizaStorage();
+
+    (totalCompra != 0)?(
+    enviarCarritoBtn.addEventListener('click',() => {
+        Swal.fire({
+            title: 'Acceso',
+            icon: 'info',
+            text: 'Para Enviar el Pedido debe Iniciar Seción',
+            showCancelButton: true,
+            confirmButtonText: 'REGISTRARME',
+            showLoaderOnConfirm: true,
+            footer: '<a class="sesion" href="pages/login.html">Si ya tiene Usuario INGRESAR AQUÍ</a>',
+      
+    })
+    })):(enviarCarritoBtn.addEventListener('click',() => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Carrito Vacio',
+            text: 'Agregar productos al Carrito',
+          })
+    }))
 };
+//////////////////////////////////////////////////////////////
 
 const pintarTotalesCarrito = (totalCantidad, totalCompra) => {
     const contadorCarrito = document.getElementById('contador-carrito');
@@ -134,65 +166,67 @@ const pintarTotalesCarrito = (totalCantidad, totalCompra) => {
 
     contadorCarrito.innerText = totalCantidad;
     precioTotal.innerText = totalCompra;
-    
+    carritoHTML();
 };
+//////////////////////////////////////////////////////////////
+
+function vaciarHTML(){
+    while(contenedorCarrito.firstChild){
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild)
+    }
+}
 
 //Muestra el carrito de compras en el HTML
 
 function carritoHTML(){
     //Limpia HTML
    limpiaHTML();
+   
     //Recorre el carrito y genera el HTML
     articuloCarrito.forEach( producto =>{
-      //  console.log(producto);
-       //const { imagen, titulo, precio, cantidad, id} = producto;     
+     //  console.log(producto);
+       const { imagen, titulo, precio, cantidad, id} = producto;     
         const row = document.createElement('tr');
         row.innerHTML = `
         
         <td class ="td-carrito">
-            <img src="${producto.imagen}" width="60">
+            <img src="${imagen}" width="60">
         </td>
         <td class="td-carrito texto-titulo">
-            ${producto.titulo}
+            ${titulo}
          </td>
         <td class ="td-carrito">
-            ${producto.precio}
+            ${precio}
         </td>
          <td class ="td-carrito">
-           <p id = cantidad${producto.id} class="texto-cantidad"> Cantidad : ${producto.cantidad}</p>
+           <p id = ${cantidad} class="texto-cantidad"> Cantidad : ${cantidad}</p>
         </td>
         <td>
-            <button href="#" class='borrar-producto' id=${producto.id} > X </button>
+            <a  href="#" class='borrar-producto' id=${id} > X </a>
          </td>
-
-       
         `;
+      
         //Agrega el HTML del carrito en el tbody
         contenedorCarrito.appendChild(row);
 
         //Agrega carrito al storage
        sincronizaStorage();
-       // guardarCarritoStorage(carrito);
     });
+
+    
 
     function sincronizaStorage(){
         localStorage.setItem('carrito', JSON.stringify(articuloCarrito));
     }
 
+    
+
     //Elimina los productos del tbody
     function limpiaHTML(){
         contenedorCarrito.innerHTML = '';
-        // while(contenedorCarrito.firstChild){
-        //     contenedorCarrito.removeChild(contenedorCarrito.firstChild)
-        // }
+       
     }
+
+   
 }
 
-// const guardarCarritoStorage = (articuloCarrito) => {
-//     localStorage.setItem('carrito', JSON.stringify(articuloCarrito));
-// };
-
-// const obtenerCarritoStorage = () => {
-//     const carritoStorage = JSON.parse(localStorage.getItem('articuloCarrito'));
-//     return carritoStorage;
-// };
